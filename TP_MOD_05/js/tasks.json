@@ -1,0 +1,10 @@
+{
+    "tasks": [
+      { "text": "Complete project report", "completed": true },
+      { "text": "Attend meeting", "completed": false },
+      { "text": "Prepare presentation", "completed": true },
+      { "text": "Submit assignment", "completed": false },
+      { "text": "Review team feedback", "completed": true }
+    ]
+  }
+  

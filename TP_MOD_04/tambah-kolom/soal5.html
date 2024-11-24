@@ -1,0 +1,36 @@
+<html>
+  <body>
+    <button onclick="tes()">Add Row</button>
+    <table id="myTable" border="1">
+      <tr>
+        <td>A</td>
+        <td>B</td>
+        <td>C</td>
+      </tr>
+      <tr>
+        <td>D</td>
+        <td>E</td>
+        <td>F</td>
+      </tr>
+    </table>
+    <script>
+      function tes() {
+        var input1 = prompt("Masukkan nilai untuk kolom pertama:");
+        var input2 = prompt("Masukkan nilai untuk kolom kedua:");
+        var input3 = prompt("Masukkan nilai untuk kolom ketiga:");
+
+        var table = document.getElementById("myTable");
+
+        var newRow = table.insertRow();
+        
+        var cell1 = newRow.insertCell(0);
+        var cell2 = newRow.insertCell(1);
+        var cell3 = newRow.insertCell(2);
+
+        cell1.innerHTML = input1;
+        cell2.innerHTML = input2;
+        cell3.innerHTML = input3;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NIM_Soal2</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body onload="fillForm()">
+    <form>
+        <div class="form-group">
+            <label>Nama</label>
+            <input type="text" class="form-control" id="nama" readonly>
+        </div>
+        <div class="form-group">
+            <label>NIM</label>
+            <input type="text" class="form-control" id="nim" readonly>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+		function fillForm() {
+            var nama = prompt("Masukkan nama Anda:");
+            var nim = prompt("Masukkan NIM Anda:");
+
+            document.getElementById('nama').value = nama;
+            document.getElementById('nim').value = nim;
+        }
+    </script>
+
+</body>
+</html>
