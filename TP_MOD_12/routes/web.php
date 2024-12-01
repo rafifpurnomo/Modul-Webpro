@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PegawaiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PegawaiController::class, 'index'])->name('pegawais.index');
+
+Route::get('/pegawais/create', function () {
+    return view('pegawai/create');
+})->name('pegawais.create');
+Route::post('/pegawais/store', [PegawaiController::class, 'store'])->name('pegawais.store');
+
