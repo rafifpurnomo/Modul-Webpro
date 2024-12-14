@@ -22,6 +22,29 @@ const getAllDataMovies = async (req, res) => {
   }
 };
 
+const getAllMoviesByID = async (req, res) => {
+  const { id_movies } = req.params;
+
+  try {
+    const [data] = await movieModels.getAllMoviesByID(id_movies);
+    if (data.length > 0) {
+      res.json({
+        massage: "menampilkan data movies",
+        data: data,
+      });
+    } else {
+      res.status(404).json({
+        massage: "movie tidak ada",
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      massage: "error",
+      serverMassage: error,
+    });
+  }
+};
+
 const addMovies = async (req, res) => {
   const { nama, tahun_rilis, deskripsi } = req.body;
 
@@ -61,14 +84,20 @@ const deleteMovies = async (req, res) => {
 };
 
 const updateDeskripsi = async (req, res) => {
-  const { deskripsi } = req.body;
+  const { nama, tahun_rilis, deskripsi } = req.body;
   const { id_movies } = req.params;
 
   try {
-    await movieModels.editMovies(deskripsi, id_movies);
+    await movieModels.editMovies(nama, tahun_rilis, deskripsi, id_movies);
+    const RS = {
+      id_movies,
+      nama,
+      tahun_rilis,
+      deskripsi,
+    };
     res.json({
       massage: "Berhasil mengedit deskripsi movies",
-      data: deskripsi,
+      data: RS,
     });
   } catch (error) {
     res.status(500).json({
@@ -80,7 +109,8 @@ const updateDeskripsi = async (req, res) => {
 
 module.exports = {
   getAllDataMovies,
+  getAllMoviesByID,
   addMovies,
   deleteMovies,
-  updateDeskripsi
+  updateDeskripsi,
 };
