@@ -50,15 +50,15 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="d-flex justify-content-center">
-                <a href="/movies/add">
-                    <button class="btn btn-primary">Tambah Movie</button>
-                </a>
-
-            </div>
         @else
             <p class="text-center">Tidak ada data film tersedia.</p>
         @endif
+        <div class="d-flex justify-content-center">
+            <a href="/movies/add">
+                <button class="btn btn-primary">Tambah Movie</button>
+            </a>
+
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
